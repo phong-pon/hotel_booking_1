@@ -1,0 +1,746 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeeMinHon-inspired Booking</title>
+
+    <link rel="stylesheet" href="Home.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container nav">
+
+            <div class="logo" aria-label="Agoda-inspired logo">
+                <span class="logo-l">l</span>
+                <span class="logo-e">e</span>
+                <span class="logo-e2">e</span>
+                <span class="logo-m">m</span>
+                <span class="logo-i">i</span>
+                <span class="logo-n">n</span>
+                <span class="logo-h">h</span>
+                <span class="logo-o">o</span>
+                <span class="logo-n2">n</span>
+            </div>
+
+            <nav class="nav-links" aria-label="Main navigation">
+                <a href="#">Stays</a>
+                <a href="#">Flights</a>
+                <a href="#">Cars</a>
+                <a href="#">Packages</a>
+                <a href="#">Attractions</a>
+            </nav>
+
+            <div class="nav-actions">
+                <div class="language">
+                    <select id="language">
+                        <option value="vi">VN</option>
+                        <option value="en">EN</option>
+                    </select>
+                </div>
+                <button class="btn-outline" type="button">List your property</button>
+                <a href="../Sign_in/Signin.html" class="btn-primary">Sign In</a>
+            </div>
+
+
+            <button class="menu-btn" type="button" aria-label="Open menu">☰</button>
+        </div>
+    </header>
+
+
+    <main>
+
+
+        <section class="hero">
+            <div class="container hero-content">
+
+                <div class="eyebrow">
+                    YOUR NEXT ESCAPE STARTS HERE
+                </div>
+
+                <h1>
+                    Find the perfect stay for your next adventure
+                </h1>
+
+                <p class="hero-text">
+                    Book handpicked hotels, beach resorts, and city escapes
+                    with seamless stays, flexible prices, and unforgettable experiences.
+                </p>
+
+
+
+                <div class="search-card">
+
+                    <div class="tabs" aria-label="Search tabs">
+                        <button type="button" class="tab active">Stays</button>
+                        <button type="button" class="tab">Flights</button>
+                        <button type="button" class="tab">Cars</button>
+                        <button type="button" class="tab">Packages</button>
+                    </div>
+
+
+                    <div class="search-grid">
+
+                        <div class="field destination">
+                            <label>Destination</label>
+
+                            <div class="field-input">
+                                <span>📍</span>
+
+                                <input type="text"
+                                       value=""
+                                       aria-label="Destination">
+                            </div>
+                        </div>
+
+
+                        <div class="field">
+                            <label for="checkin">Check in</label>
+
+                            <div class="field-input">
+                                <span>📅</span>
+
+                                <input type="date" id="checkin" name="checkin" required>
+                            </div>
+                        </div>
+
+
+                        <div class="field">
+                            <label for="checkout">Check out</label>
+
+                            <div class="field-input">
+                                <span>📅</span>
+
+                                <input type="date" id="checkout" name="checkout" required>
+                            </div>
+                        </div>
+
+
+                        <div class="field">
+                            <label>Guests</label>
+
+
+                            <div class="guest-picker">
+                                <button type="button" class="guest-trigger" id="guestTrigger"
+                                        aria-expanded="false">
+                                    <svg class="guest-icon" viewBox="0 0 24 24" width="26" height="26" fill="none"
+                                         stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="9" cy="8" r="3.5" />
+                                        <path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6" />
+                                        <circle cx="17" cy="9" r="2.5" />
+                                        <path d="M16.5 14.2c3 .2 5 2.2 5 5.3" />
+                                    </svg>
+                                    <span class="guest-summary">
+                                        <span id="guestSummary">1 người lớn</span>
+                                        <small id="roomSummary">1 phòng</small>
+                                    </span>
+                                    <svg class="guest-arrow" viewBox="0 0 24 24" width="22" height="22" fill="none"
+                                         stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M6 9l6 6 6-6" />
+                                    </svg>
+                                </button>
+
+                                <div class="guest-panel" id="guestPanel" hidden>
+                                    <div class="guest-row">
+                                        <div class="guest-label">
+                                            <strong>Phòng</strong>
+                                        </div>
+                                        <div class="guest-controls">
+                                            <button type="button" data-count="rooms" data-change="-1"
+                                                    aria-label="Giảm số phòng">
+                                                −
+                                            </button>
+                                            <span id="roomsCount">1</span>
+                                            <button type="button" data-count="rooms" data-change="1"
+                                                    aria-label="Tăng số phòng">
+                                                +
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="guest-row">
+                                        <div class="guest-label">
+                                            <strong>Người lớn</strong>
+                                            <small>18 tuổi trở lên</small>
+                                        </div>
+                                        <div class="guest-controls">
+                                            <button type="button" data-count="adults" data-change="-1"
+                                                    aria-label="Giảm số người lớn">
+                                                −
+                                            </button>
+                                            <span id="adultsCount">1</span>
+                                            <button type="button" data-count="adults" data-change="1"
+                                                    aria-label="Tăng số người lớn">
+                                                +
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="guest-row">
+                                        <div class="guest-label">
+                                            <strong>Trẻ em</strong>
+                                            <small>0–17 tuổi</small>
+                                        </div>
+                                        <div class="guest-controls">
+                                            <button type="button" data-count="children" data-change="-1"
+                                                    aria-label="Giảm số trẻ em">
+                                                −
+                                            </button>
+                                            <span id="childrenCount">0</span>
+                                            <button type="button" data-count="children" data-change="1"
+                                                    aria-label="Tăng số trẻ em">
+                                                +
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                   
+                                </div>
+
+                                <input type="hidden" name="rooms" id="roomsInput" value="1">
+                                <input type="hidden" name="adults" id="adultsInput" value="1">
+                                <input type="hidden" name="children" id="childrenInput" value="0">
+                            </div>
+
+                        </div>
+
+
+                        <button type="button" class="search-btn">
+                            Search
+                        </button>
+
+                    </div>
+
+
+                    <div class="quick-options">
+                        <span>Popular:</span>
+                        <span>Beach resorts</span>
+                        <span>City stays</span>
+                        <span>Family trips</span>
+                        <span>Last-minute deals</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="section benefits">
+            <div class="container">
+
+                <h2>Why travelers choose us</h2>
+
+                <div class="benefit-grid">
+
+                    <article class="benefit-card">
+                        <div class="icon">💸</div>
+
+                        <h3>Best price guarantee</h3>
+
+                        <p>
+                            Exclusive rates on stays you won’t find elsewhere.
+                        </p>
+                    </article>
+
+
+                    <article class="benefit-card">
+                        <div class="icon">✅</div>
+
+                        <h3>Easy booking</h3>
+
+                        <p>
+                            Fast checkout and flexible change options on select stays.
+                        </p>
+                    </article>
+
+
+                    <article class="benefit-card">
+                        <div class="icon">🛡️</div>
+
+                        <h3>Reliable support</h3>
+
+                        <p>
+                            Friendly help whenever you need changes or guidance.
+                        </p>
+                    </article>
+
+
+                    <article class="benefit-card">
+                        <div class="icon">🌟</div>
+
+                        <h3>Curated stays</h3>
+
+                        <p>
+                            Hand-picked hotels with high traveler satisfaction ratings.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="section deals-section">
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>Special deals</h2>
+                        <p>Save more on handpicked stays</p>
+                    </div>
+
+                    <a href="#">View all deals</a>
+
+                </div>
+
+
+                <div class="deal-grid">
+
+                    <article class="deal-card deal-blue">
+
+                        <div>
+
+                            <span class="badge">
+                                Limited offer
+                            </span>
+
+                            <h3>Up to 40% off</h3>
+
+                            <p>
+                                Escape to tropical villas and luxury seaside
+                                resorts this season.
+                            </p>
+
+                            <button type="button">
+                                Explore now
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="deal-card deal-pink">
+
+                        <div>
+
+                            <span class="badge">
+                                Weekend saver
+                            </span>
+
+                            <h3>City break bundles</h3>
+
+                            <p>
+                                Score amazing rates on short stays,
+                                flights, and dining extras.
+                            </p>
+
+                            <button type="button">
+                                Grab the deal
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>Trending stays</h2>
+                        <p>Popular hotels loved by guests</p>
+                    </div>
+
+
+                </div>
+
+
+                <div class="hotel-carousel">
+                    <button type="button" class="carousel-btn prev" id="hotelPrev" aria-label="Previous hotels">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6" /></svg>
+                    </button>
+
+                    <div class="hotel-viewport">
+                        <div class="hotel-grid" id="hotelTrack">
+
+
+                            <article class="hotel-card">
+
+                                <div class="hotel-image image-1">
+
+                                    <button type="button"
+                                            class="heart"
+                                            aria-label="Save hotel">
+                                        ♡
+                                    </button>
+
+                                    <span class="discount">
+                                        -18%
+                                    </span>
+
+                                </div>
+
+
+                                <div class="hotel-info">
+
+                                    <h3>
+                                        Azure Coast Resort & Spa
+                                    </h3>
+
+                                    <div class="location">
+                                        Nusa Dua, Bali
+                                    </div>
+
+                                    <div class="rating-row">
+                                        <span class="rating">8.9</span>
+                                        <span>
+                                            Excellent · 1,248 reviews
+                                        </span>
+                                    </div>
+
+                                    <div class="price">
+                                        <span class="old">$219</span>
+                                        <strong>$179</strong>
+                                        <small>/night</small>
+                                    </div>
+
+                                </div>
+
+                            </article>
+
+
+
+                            <article class="hotel-card">
+
+                                <div class="hotel-image image-2">
+
+                                    <button type="button"
+                                            class="heart"
+                                            aria-label="Save hotel">
+                                        ♡
+                                    </button>
+
+                                    <span class="discount">
+                                        -12%
+                                    </span>
+
+                                </div>
+
+
+                                <div class="hotel-info">
+
+                                    <h3>
+                                        Summit Peak Hotel
+                                    </h3>
+
+                                    <div class="location">
+                                        Kuta, Bali
+                                    </div>
+
+                                    <div class="rating-row">
+                                        <span class="rating">9.1</span>
+                                        <span>
+                                            Wonderful · 980 reviews
+                                        </span>
+                                    </div>
+
+                                    <div class="price">
+                                        <span class="old">$189</span>
+                                        <strong>$166</strong>
+                                        <small>/night</small>
+                                    </div>
+
+                                </div>
+
+                            </article>
+
+
+
+                            <article class="hotel-card">
+
+                                <div class="hotel-image image-3">
+
+                                    <button type="button"
+                                            class="heart"
+                                            aria-label="Save hotel">
+                                        ♡
+                                    </button>
+
+                                    <span class="discount">
+                                        -25%
+                                    </span>
+
+                                </div>
+
+
+                                <div class="hotel-info">
+
+                                    <h3>
+                                        Harbor View Suites
+                                    </h3>
+
+                                    <div class="location">
+                                        Canggu, Bali
+                                    </div>
+
+                                    <div class="rating-row">
+                                        <span class="rating">8.8</span>
+                                        <span>
+                                            Very good · 1,440 reviews
+                                        </span>
+                                    </div>
+
+                                    <div class="price">
+                                        <span class="old">$204</span>
+                                        <strong>$153</strong>
+                                        <small>/night</small>
+                                    </div>
+
+                                </div>
+
+                            </article>
+
+
+                            <!-- HOTEL 4 -->
+                            <article class="hotel-card">
+
+                                <div class="hotel-image image-4">
+
+                                    <button type="button"
+                                            class="heart"
+                                            aria-label="Save hotel">
+                                        ♡
+                                    </button>
+
+                                    <span class="discount">
+                                        -15%
+                                    </span>
+
+                                </div>
+
+
+                                <div class="hotel-info">
+
+                                    <h3>
+                                        Bloom & Breeze
+                                    </h3>
+
+                                    <div class="location">
+                                        Ubud, Bali
+                                    </div>
+
+                                    <div class="rating-row">
+                                        <span class="rating">9.0</span>
+                                        <span>
+                                            Exceptional · 860 reviews
+                                        </span>
+                                    </div>
+
+                                    <div class="price">
+                                        <span class="old">$248</span>
+                                        <strong>$211</strong>
+                                        <small>/night</small>
+                                    </div>
+
+                                </div>
+
+                            </article>
+
+                        </div>
+                    </div>
+
+                    <button type="button" class="carousel-btn next" id="hotelNext" aria-label="Next hotels">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6" /></svg>
+                    </button>
+                </div>
+            </div>
+</section>
+
+
+        <!-- DESTINATIONS -->
+        <section class="section destinations">
+
+            <div class="container">
+
+                <h2>Popular destinations</h2>
+
+
+                <div class="destination-grid">
+
+                    <article class="destination-card dest-1">
+
+                        <div>
+                            <h3>Bali</h3>
+                            <p>1,408 stays</p>
+                        </div>
+
+                    </article>
+
+
+                    <article class="destination-card dest-2">
+
+                        <div>
+                            <h3>Paris</h3>
+                            <p>846 stays</p>
+                        </div>
+
+                    </article>
+
+
+                    <article class="destination-card dest-3">
+
+                        <div>
+                            <h3>Tokyo</h3>
+                            <p>1,219 stays</p>
+                        </div>
+
+                    </article>
+
+
+                    <article class="destination-card dest-4">
+
+                        <div>
+                            <h3>New York</h3>
+                            <p>1,067 stays</p>
+                        </div>
+
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- NEWSLETTER -->
+        <section class="newsletter">
+
+            <div class="container newsletter-inner">
+
+                <div>
+
+                    <h2>
+                        Get exclusive travel deals
+                    </h2>
+
+                    <p>
+                        Subscribe for flash sales, coupon drops,
+                        and destination inspiration.
+                    </p>
+
+                </div>
+
+
+                <form>
+
+                    <input type="email"
+                           placeholder="Enter your email"
+                           aria-label="Email address">
+
+                    <button type="submit">
+                        Join now
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="container footer-grid">
+
+            <div>
+
+                <div class="logo footer-logo"
+                     aria-label="Agoda-inspired logo">
+                    <span class="logo-l">l</span>
+                    <span class="logo-e">e</span>
+                    <span class="logo-e2">e</span>
+                    <span class="logo-m">m</span>
+                    <span class="logo-i">i</span>
+                    <span class="logo-n">n</span>
+                    <span class="logo-h">h</span>
+                    <span class="logo-o">o</span>
+                    <span class="logo-n2">n</span>
+                </div>
+
+                <p>
+                    Plan memorable stays, discover new destinations,
+                    and travel with confidence using our trusted booking platform.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>Company</h4>
+
+                <a href="#">About</a>
+                <a href="#">Careers</a>
+                <a href="#">Press</a>
+
+            </div>
+
+
+            <div>
+
+                <h4>Support</h4>
+
+                <a href="#">Help center</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy</a>
+
+            </div>
+
+
+            <div>
+
+                <h4>Explore</h4>
+
+                <a href="#">Hotels</a>
+                <a href="#">Flights</a>
+                <a href="#">Trips</a>
+
+            </div>
+
+        </div>
+
+
+    </footer>
+
+
+    <!-- TOAST -->
+    <div id="toast"
+         class="toast"
+         role="status"
+         aria-live="polite">
+        Saved to your wishlist
+    </div>
+
+
+
+
+    <script src="Home.js"></script>
+</body>
+</html>

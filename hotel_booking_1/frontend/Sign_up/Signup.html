@@ -1,0 +1,58 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Hotel Booking</title>
+    <link rel="stylesheet" href="Signup.css">
+</head>
+<body>
+    <main class="signup-container">
+        <form id="signupForm" class="signup-card">
+            <a href="../Home/Home.html" class="logo">leeminhon</a>
+
+            <h1>Create account</h1>
+            <p>Join us and start planning your next adventure.</p>
+
+            <label for="fullname">Full name</label>
+            <input type="text" id="fullname" placeholder="Enter your full name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+
+
+            <label for="password">Password</label>
+            <div class="password-wrapper">
+                <input type="password" id="password"
+                       placeholder="Create a password" minlength="8" required>
+            </div>
+
+            <label for="confirmPassword">Confirm password</label>
+            <div class="password-wrapper">
+                <input type="password" id="confirmPassword"
+                       placeholder="Confirm your password" minlength="8" required>
+            </div>
+
+
+            <label class="terms">
+                <input type="checkbox" id="agreeTerms" required>
+                I agree to the Terms and Conditions
+            </label>
+
+            <button type="submit">Create Account</button>
+
+            <p id="message" role="status"></p>
+
+            <p class="signin-link">
+                Already have an account?
+                <a href="../Sign_in/Signin.html">Sign in</a>
+            </p>
+
+            <a href="../Home/Home.html" class="back-home">← Back to Home</a>
+        </form>
+    </main>
+
+    <script src="Signup.js"></script>
+</body>
+</html>
